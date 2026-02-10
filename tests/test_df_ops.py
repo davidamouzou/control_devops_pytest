@@ -1,13 +1,6 @@
 import pandas as pd
-import pytest
 
-from src.df_ops import (
-    build_dataframe,
-    filter_by_department,
-    mean_age,
-    mean_salary,
-    row_count,
-)
+from src.df_ops import build_dataframe, filter_by_department, mean_age, mean_salary, row_count
 
 
 def test_build_dataframe_structure() -> None:
@@ -16,13 +9,13 @@ def test_build_dataframe_structure() -> None:
     assert len(df) == 8
     assert pd.api.types.is_integer_dtype(df["age"])
     assert pd.api.types.is_float_dtype(df["salaire"])
-    assert pd.api.types.is_object_dtype(df["departement"])
+    assert pd.api.types.is_string_dtype(df["departement"])
 
 
 def test_means() -> None:
     df = build_dataframe()
-    assert mean_age(df) == pytest.approx(34.5)
-    assert mean_salary(df) == pytest.approx(3775.0)
+    assert mean_age(df) == 34.5
+    assert mean_salary(df) == 3775.0
 
 
 def test_filter_by_department_it() -> None:

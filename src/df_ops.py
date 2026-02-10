@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import pandas as pd
 
 
@@ -21,9 +19,7 @@ def build_dataframe() -> pd.DataFrame:
     data = {
         "age": [25, 30, 22, 45, 35, 28, 50, 41],
         "salaire": [2800.0, 3200.0, 2100.0, 5000.0, 3800.0, 2600.0, 6200.0, 4500.0],
-        "departement": pd.Series(
-            ["IT", "IT", "HR", "Finance", "IT", "HR", "Finance", "IT"], dtype="object"
-        ),
+        "departement": ["IT", "IT", "HR", "Finance", "IT", "HR", "Finance", "IT"],
     }
     return pd.DataFrame(data)
 
@@ -31,13 +27,13 @@ def build_dataframe() -> pd.DataFrame:
 def mean_age(df: pd.DataFrame) -> float:
     # Calcule la moyenne de la colonne age.
     _validate_columns(df)
-    return float(df["age"].mean())
+    return df["age"].mean()
 
 
 def mean_salary(df: pd.DataFrame) -> float:
     # Calcule la moyenne de la colonne salaire.
     _validate_columns(df)
-    return float(df["salaire"].mean())
+    return df["salaire"].mean()
 
 
 def filter_by_department(df: pd.DataFrame, dept: str) -> pd.DataFrame:
