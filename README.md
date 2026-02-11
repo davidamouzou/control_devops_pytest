@@ -29,3 +29,9 @@ pip install -r requirements.txt
 ```bash
 pytest
 ```
+
+## Mesurez la couverture de vos tests avec pytest-cov
+
+```bash
+pytest --cov=src tests/
+```
